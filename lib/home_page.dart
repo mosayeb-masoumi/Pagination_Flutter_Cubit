@@ -68,7 +68,7 @@ class IHomePage extends StatelessWidget {
           }
 
           return ListView.separated(
-             controller: _scrollController,
+              controller: _scrollController,
               itemBuilder: (context , index){
                if(index < posts.length){
                  return _postItem(posts[index] , context , index);
@@ -103,9 +103,13 @@ class IHomePage extends StatelessWidget {
   Widget _postItem(Post post, BuildContext context, int index) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: 100,
-      margin: EdgeInsets.all(5),
-      child: Center(child: Text("${post.title} $index"),),
+      height: 50,
+      margin: EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(
+        color: Colors.blueGrey,
+        borderRadius: BorderRadius.circular(10)
+      ),
+      child: Center(child: Text("${post.title} $index" , style: TextStyle(color: Colors.white , fontSize: 20),),),
     );
   }
 
